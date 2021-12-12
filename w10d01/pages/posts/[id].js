@@ -1,3 +1,6 @@
+import styles from '../../styles/Home.module.css'
+
+
 export async function getStaticPaths() {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts`);
   const posts = await res.json();
@@ -20,11 +23,14 @@ const Post = ({ post }) => {
   //   console.log(post);
   return (
     <>
-      <h1>Post</h1>
+    <div className={styles.card}>
+    <h1>Post</h1>
       <div key={post.id}>
         <h2>{post.title}</h2>
         <p>{post.body}</p>
       </div>
+    </div>
+      
     </>
   );
 };
